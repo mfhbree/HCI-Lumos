@@ -1,14 +1,24 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content class="frame">
+  <div class="sidebar">
+    <!--<button ion-button (click)="addLamps()">Add Lamps</button>-->
+    <ion-icon (click)="lampsOn()" class="button" name="bulb"></ion-icon>
+    <ion-icon (click)="changeColor()" class="button" name="color-palette"></ion-icon>
+    <ion-icon (click)="goHome()" class="button" name="home"></ion-icon>
+    <img src="../../assets/imgs/logo2.png" class="logo">
+  </div>
+  <div id="content" (click)="touchstart($event)">
+      <ion-toggle id="exampleToggle" disabled="false" style="display:none" class="square"></ion-toggle>
+      <ion-toggle *ngFor="let lamp of room.lamps" id="exampleToggle" [(ngModel)]="lamp.isActive" (ngModelChange)="update($event, lamp)" disabled="false" class="square" [ngStyle]="setStyle(lamp)"></ion-toggle>
+      <div padding id="buttons">
+        <button ion-button color="secondary" (click)="add()">Add</button>
+        <button ion-button color="danger" (click)="cancel()">Cancel</button>
+      </div>
+      <img src="../../assets/imgs/{{room.img}}"/>
+  </div>
+  <ion-fab id="add" right bottom style="z-index:10000">
+    <button ion-fab (click)="addLamps()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
 </ion-content>

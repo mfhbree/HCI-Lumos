@@ -1,0 +1,22 @@
+<ion-header>
+</ion-header>
+
+<ion-content class="frame">
+  <div class="sidebar">
+    <img src="../../assets/imgs/logo2.png" class="logo">
+  </div>
+  <div id="content">
+    <ion-content class="card-background-page">
+      
+      <ion-card *ngFor ="let room of rooms" (click)="goToRoom(room)">
+        <img src="../../assets/imgs/{{room.img}}"/>
+        <div class="card-title">{{room.name}}</div>
+        <div class="card-subtitle">{{room.lamps.length}} Lamps</div>
+      </ion-card>
+
+    </ion-content>
+  </div>
+  <ion-fab right bottom>
+    <button ion-fab (click)="addRoom()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+</ion-content>

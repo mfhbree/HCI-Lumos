@@ -1,0 +1,29 @@
+<ion-header>
+  </ion-header>
+  
+  <ion-content class="frame">
+    <div class="sidebar">
+      <img src="../../assets/imgs/logo2.png" class="logo">
+    </div>
+    <div id="content">
+      <ion-list inset>
+
+        <ion-item>
+          <ion-label>Room Name</ion-label>
+          <ion-input [(ngModel)]="room.name" type="text"></ion-input>
+        </ion-item>
+
+      </ion-list>
+
+      <div padding>
+        <button ion-button icon-start (click)="takePicture()">
+          <ion-icon name="camera"></ion-icon>
+          Take Image
+        </button>
+      </div>
+      <div padding>
+        <button ion-button color="secondary" (click)="confirm()">Confirm</button>
+        <button ion-button color="danger" (click)="cancel()">Cancel</button>
+      </div>
+    </div>
+  </ion-content>
